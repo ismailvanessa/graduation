@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Undangan Graduation Vanessa</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary-color: #5a4033;
+      --bg-light: #fffaf5;
+      --accent-color: #d9c3b3;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #fff;
+      color: var(--primary-color);
+      scroll-behavior: smooth;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .cover-page {
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(to bottom right, #fef8f4, #f6eae3);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      z-index: 999;
+      overflow: hidden;
+      transition: opacity 1s ease;
+      padding: 2rem;
+    }
+
+    .motif-overlay {
+      position: absolute;
+      inset: 0;
+      background-image: url('motif.png');
+      background-repeat: repeat;
+      background-size: 250px;
+      opacity: 0.08;
+      z-index: 1;
+      animation: fadePattern 30s linear infinite;
+    }
+
+    @keyframes fadePattern {
+      0% { background-position: 0 0; }
+      100% { background-position: 500px 500px; }
+    }
+
+    .cover-page h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      color: var(--primary-color);
+      z-index: 2;
+      margin-bottom: 1rem;
+      animation: fadeInDown 1.3s ease-out;
+    }
+
+    .cover-page p {
+      font-size: 1.3rem;
+      color: var(--primary-color);
+      z-index: 2;
+      margin-bottom: 2rem;
+      animation: fadeInUp 1.6s ease-out;
+    }
+
+    .cover-page button {
+      padding: 1rem 2.5rem;
+      font-size: 1.1rem;
+      font-weight: 500;
+      border: none;
+      border-radius: 30px;
+      background-color: var(--primary-color);
+      color: white;
+      cursor: pointer;
+      z-index: 2;
+      animation: fadeInUp 2s ease-out;
+      transition: all 0.4s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .cover-page button:hover {
+      transform: scale(1.05);
+      background-color: #7a5b4b;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .main-content {
+      display: none;
+    }
+
+    .show {
+      display: block;
+      animation: fadeInMain 1.2s ease-in;
+    }
+
+    @keyframes fadeInMain {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .hero {
+      position: relative;
+      background: url('bg-elegant.jpg') center/cover no-repeat;
+      padding: 7rem 2rem 5rem;
+      text-align: center;
+      color: var(--primary-color);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(4px);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .hero-content h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      animation: fadeInDown 1.2s ease-in-out;
+    }
+
+    .invitation-text {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      animation: fadeInUp 1.4s ease-in-out;
+    }
+
+    .bible-verse {
+      font-style: italic;
+      font-size: 1rem;
+      animation: fadeInUp 1.6s ease-in-out;
+    }
+
+    .verse-ref {
+      display: block;
+      margin-top: 0.4rem;
+      font-size: 0.95rem;
+    }
+
+    .photo-section {
+      text-align: center;
+      padding: 3rem 1rem;
+      background: var(--bg-light);
+    }
+
+    .graduate-photo {
+      max-width: 340px;
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      transition: transform 0.4s ease;
+    }
+
+    .graduate-photo:hover {
+      transform: scale(1.03);
+    }
+
+    .details {
+      padding: 2.5rem 1rem;
+      text-align: center;
+    }
+
+    .details h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .info-grid {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      background: #fff;
+      padding: 1.6rem;
+      border-radius: 16px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+      width: 100%;
+      max-width: 240px;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .card p {
+      font-size: 1rem;
+    }
+
+    .map-link {
+      color: var(--primary-color);
+      text-decoration: underline;
+      word-wrap: break-word;
+    }
+
+    footer {
+      padding: 1.5rem;
+      text-align: center;
+      background: var(--bg-light);
+      font-size: 0.9rem;
+      color: var(--primary-color);
+    }
+
+    @media (max-width: 480px) {
+      .cover-page h1 {
+        font-size: 2.2rem;
+      }
+
+      .cover-page p,
+      .invitation-text,
+      .bible-verse {
+        font-size: 1rem;
+      }
+
+      .details h2 {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <audio id="bg-music" loop>
+    <source src="audio/music.mp3" type="audio/mpeg" />
+    Browser Anda tidak mendukung audio.
+  </audio>
+
+  <div class="cover-page" id="coverPage">
+    <div class="motif-overlay"></div>
+    <h1>Undangan Wisuda</h1>
+    <p>Vanessa Junicha Ismail, S.M</p>
+    <button onclick="openInvitation()">Buka Undangan</button>
+  </div>
+
+  <div class="main-content" id="mainContent">
+    <header class="hero">
+      <div class="hero-content">
+        <h1>Vanessa Junicha Ismail, S.M</h1>
+        <p class="invitation-text">Oleh karena perlindungan dan tuntunan tuhan dan support yang luar biasa dari orang tua dan keluarga saya bisa menyelesaikan pendidikan saya di universitas klabat. Dan dengan penuh sukacita, saya mengundang bapak/ibu, saudara/saudari, dan teman-teman semuanya. untuk menghadiri acara wisuda saya.</p>
+        <blockquote class="bible-verse">
+          “Bersyukurlah kepada TUHAN, sebab Ia baik!<br/>
+          Bahwasanya untuk selama-lamanya kasih setia-Nya.”<br/>
+          <span class="verse-ref">— Mazmur 107:1</span>
+        </blockquote>
+      </div>
+    </header>
+
+    <section class="photo-section">
+      <img src="foto/vanessa.jpg" alt="Foto Vanessa" class="graduate-photo" />
+    </section>
+
+    <section class="details">
+      <h2>Detail Acara</h2>
+      <div class="info-grid">
+        <div class="card">
+          <h3>📅 Tanggal</h3>
+          <p>15 Juni 2025</p>
+        </div>
+        <div class="card">
+          <h3>⏰ Waktu</h3>
+          <p>12:30 - Selesai</p>
+        </div>
+        <div class="card">
+          <h3>📍 Lokasi</h3>
+          <p>
+            kel. Ismail Batasina<br/>
+            <a href="https://maps.app.goo.gl/18GnNCxneyQ15RiXA" target="_blank" class="map-link">Buka di Google Maps</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 Vanessa Junicha Ismail</p>
+    </footer>
+  </div>
+
+  <script>
+    function openInvitation() {
+      const cover = document.getElementById('coverPage');
+      const content = document.getElementById('mainContent');
+      cover.style.opacity = 0;
+      setTimeout(() => {
+        cover.style.display = 'none';
+        content.classList.add('show');
+        document.getElementById('bg-music').play();
+      }, 1000);
+    }
+  </script>
+</body>
+</html>
